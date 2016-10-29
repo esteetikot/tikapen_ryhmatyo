@@ -114,7 +114,7 @@ public class AlueDao implements Dao<Alue, Integer> {
             return;
         }
         
-        PreparedStatement stmt = connection.prepareStatement("INSERT INTO Alue (nimi) VALUES ('?')");
+        PreparedStatement stmt = connection.prepareStatement("INSERT INTO Alue (nimi) VALUES (?)");
         stmt.setObject(1, nimi);
 
         stmt.executeUpdate();
