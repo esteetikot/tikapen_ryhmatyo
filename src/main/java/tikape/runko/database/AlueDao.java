@@ -106,10 +106,10 @@ public class AlueDao implements Dao<Alue, Integer> {
 
     }
 
-    public void create(String nimi) throws SQLException {
+    public void create(String nimiSyote) throws SQLException {
         Connection connection = database.getConnection();
         
-        nimi = nimi.trim(); //poistaa välilyönnit
+        String nimi = nimiSyote.trim(); //poistaa välilyönnit
         if (nimi.isEmpty()) { //varmistaa, ettei voi luoda nimetöntä aluetta
             return;
         }

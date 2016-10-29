@@ -168,7 +168,7 @@ public class AiheDao implements Dao<Aihe, Integer> {
         ResultSet rs = stmt.executeQuery();
 
         if (rs.isClosed()) {
-            return "ei viesteja";
+            return "ei viestejä";
         }
 
         String palauta = rs.getString("time");
