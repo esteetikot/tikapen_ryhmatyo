@@ -9,17 +9,17 @@
         th, td {
             padding: 8px;
         }
-        
+
         form {
             display: inline-block;
         }
-        
+
         section {
             float: left;
             margin: 0 0%;
             width: 14%;
         }
-        
+
         div.fixed {
             position: fixed;
             bottom: 8px;
@@ -32,7 +32,7 @@
             padding: 0;
             margin: 0;
         }
-        
+
     </style>
     <head>
         <title>Aiheet</title>
@@ -75,14 +75,14 @@
                     <ul>
                         <li th:each="aihe : ${aihelista}">
                             <form method="POST" th:action="@{~/aihe/poista/__${aihe.id}__}">
-                                <input type="submit" value="" style="width:15px; height: 15px;" />                        
+                                <input type="submit" value="" style="width:3px; height: 3px;" />                        
                             </form>
                         </li>
                     </ul>
                 </td>
             </tr>
         </table>
-        
+
         <div class="fixed">
 
             <form id="2" method='GET' th:action="@{'~/alue/' + ${alueid} + '/aihe/' + ${aiheid}+ '/sivu/' + ${edellinensivu}}" > 

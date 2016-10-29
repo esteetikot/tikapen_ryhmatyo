@@ -28,7 +28,8 @@ public class Main {
 
         get("/", (req, res) -> {
             HashMap map = new HashMap<>();
-
+            
+            List<Alue> alueet = alueDao.findAll();
             List<String> viimeisimmat = new ArrayList<>();
             for (Alue alue : alueDao.findAll()) {
                 viimeisimmat.add("" + alueDao.getViimeisin(alue.getId()));
@@ -36,7 +37,7 @@ public class Main {
 
             List<String> viestimaarat = new ArrayList<>();
             for (Alue alue : alueDao.findAll()) {
-                viestimaarat.add("" + alueDao.getLukumaara(alue.getId()));
+                viestimaarat.add("" + alueDao.getViestienLkm(alue.getId()));
             }
 
             map.put("alueet", alueDao.findAll());

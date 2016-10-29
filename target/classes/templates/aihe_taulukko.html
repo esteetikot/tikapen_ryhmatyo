@@ -9,7 +9,7 @@
         th, td {
             padding: 8px;
         }
-        
+
         form {
             display: inline-block;
         }
@@ -24,6 +24,7 @@
             margin: 0 0%;
             width: 14%;
         }
+
         div.fixed {
             position: fixed;
             bottom: 8px;
@@ -32,19 +33,20 @@
         }
 
         ul { 
-            list-style-type: none ;
+            list-style-type: none;
             padding: 0;
             margin: 0;
         }
+
     </style>
-    
+
     <head>
         <title>Aihe</title>
         <meta charset="utf-8" />
     </head>
 
     <body>
-    <h1 th:text="'TiKaPe-foorumi ' + ' &rarr; ' + ${aluenimi} + ' &rarr; ' + ${aihenimi}">Aiheen nimi</h1>
+        <h1 th:text="'TiKaPe-foorumi ' + ' &rarr; ' + ${aluenimi} + ' &rarr; ' + ${aihenimi}">Aiheen nimi</h1>
 
         <table>
             <tr>
@@ -55,7 +57,7 @@
             </tr>
             <tr>
                 <td>
-                     <ul>
+                    <ul>
                         <li th:each="viesti : ${viestilista}">
                             <span th:text="${viesti.text}">viesti</span>
                         </li>
@@ -66,7 +68,7 @@
                         <li th:each="viesti : ${viestilista}">
                             <span th:text="${viesti.nimi}">lahettaja</span>
                         </li>
-                     </ul>
+                    </ul>
                 </td>
                 <td>
                     <ul>
@@ -79,7 +81,7 @@
                     <ul>
                         <li th:each="viesti : ${viestilista}">
                             <form method="POST" th:action="@{~/viesti/poista/__${viesti.id}__}">
-                            <input type="submit" value="" style="width:15px; height: 15px;" />                        
+                                <input type="submit" value="" style="width:3px; height: 3px;" />                        
                             </form>
                         </li>
                     </ul>
@@ -88,8 +90,8 @@
         </table>
 
         <div class="fixed">
-            
-            
+
+
             <form id="2" method='POST' th:action="@{'~/aihe/' + ${aiheid}+ '/sivu/' + ${edellinensivu}}" > 
                 <input type="submit" value="&larr;"/></form> - - - - -
             <form method='POST' th:action="@{'~/aihe/' + ${aiheid} + '/sivu/' + ${seuraavasivu}}"> 
@@ -100,7 +102,7 @@
             </form>   
 
             <h3>Lis&auml;&auml; viesti</h3>
-            
+
             <textarea rows="3" cols="40" wrap="hard" name="viesti" form="1" maxlength='160' placeholder="Kirjoita viestisi, max 160 merkkia"></textarea><br/>
             <form method="POST" th:action="@{~/aihe/__${aiheid}__}" id='1'>
 
@@ -108,7 +110,7 @@
                 <input type="text" name="name"/>
                 <input type="submit" value="Lisaa!"/>
             </form>
-        
+
         </div>
     </body>
 </html>

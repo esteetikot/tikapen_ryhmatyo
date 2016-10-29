@@ -68,19 +68,20 @@ public class AlueDao implements Dao<Alue, Integer> {
         return alueet;
     }
 
-    public Integer getLukumaara(Integer key) throws SQLException {
+    public Integer getViestienLkm(Integer alueenTunnus) throws SQLException {
 
         Connection connection = database.getConnection();
         PreparedStatement stmt = connection.prepareStatement("SELECT COUNT(*) AS viestit FROM Viesti, Aihe, Alue WHERE Viesti.aihe_id = Aihe.id AND Aihe.alue_id = Alue.id AND Alue.id = ?");
-        stmt.setObject(1, key);
+        stmt.setObject(1, alueenTunnus);
 
         ResultSet rs = stmt.executeQuery();
-        int palauta = rs.getInt("viestit");
+        int lukumaara = rs.getInt("viestit");
         rs.close();
         stmt.close();
         connection.close();
 
-        return palauta;
+        return lukumaara;
+        
     }
 
     public String getViimeisin(Integer key) throws SQLException {
@@ -93,7 +94,7 @@ public class AlueDao implements Dao<Alue, Integer> {
         ResultSet rs = stmt.executeQuery();
 
         if (rs.isClosed()) {
-            return "ei viesteja";
+            return "ei viestejä";
         }
 
         String palauta = rs.getString("time");
